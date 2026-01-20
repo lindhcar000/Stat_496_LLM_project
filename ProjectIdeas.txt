@@ -1,1 +1,6 @@
+How does user confidence affect the model output for math problems? How does the model's response change when the user is confidently correct, confidently wrong, unconfidently correct, or unconfidently wrong? We would plan on feeding the model 5-10 different problems for four different levels of mathematics.
+
+ChefGPT: Food picture database. Have it guess the major nutrient component, the macros, food groups, and “healthiness/cleanliness” of the meal. How does the model respond to foods of different cultures? 
+
+How good are models at diagnosing patients? Does the model recommend the right treatment? For women, how often does a model recommend birth control? We would give models 100 different symptoms relating to 10 health problems. We would measure how often the models got the health problem correct and if it gave correct recommendations for treatment.  
 
