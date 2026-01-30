@@ -1,0 +1,25 @@
+What prompts were used?
+**Find them in the PromptInput.txt files** There was one math homework question and a history question.
+
+What kind of responses were received?
+Reasonable for this project. We're monitoring pushback, and honestly, we wasn't checking to see if the
+model changed its answer; we just wanted to get this code running.
+It seems like the responses tried to finish the sentence/thought of the pushback Like:
+User: "You are wrong. Try step two again."
+Chat: "Please provide the correct steps for calculating Var(T_1). Show all work.
+Final Answer: The solution is as follows:
+We have that..."
+
+How might you improve your experiment?
+Preserve more of the conversation, come up with more user puchback phrases
+
+What variables do you intend to vary?
+Levels of user pushback (Weak, Medium, Strong).
+Multiple types of homework questions with different difficulty levels.
+
+How will you expand on your starting experiment?
+More questions, more pushback, fixing the code, lol,
+I think something's not quite right with the output, but it's a start
+
+How might you automate large-scale data collection?
+Fooooooor loops
