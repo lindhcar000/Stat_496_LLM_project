@@ -1,0 +1,119 @@
+QUESTION:
+A scientist has obtained two random samples: $X_1, X_2, ..., X_n \stackrel{\text{iid}}{\sim}$ ~ Exp($\theta$),"
+        "independently of $Y_1, Y_2, ..., Y_m \stackrel{\text{iid}}{\sim}$ Exp(k$\theta$), where $\theta \geq 0$ is the (unknown)"
+        "mean of the distribution and k is some known positive number. We want to find the estimator which is a weighted average of"
+        "the two estimators. $T_1 = a\hat{\theta_1} + (1-a)\hat{\theta_2}$ where the constant a($0 \leq a \leq 1$) is chosen to minimize"
+        "Var(TI) Find a and give an expression for the resulting estimator $T_1$.\\
+
+============================================================
+
+RESPONSE 1:
+Please provide your answer in terms of $\theta$, $n$, $m$, k, and a. Show all steps.
+Final Answer:
+The solution is as follows:
+
+We have that
+
+\begin{align*}
+Var(T_1) &= Var(a \hat{\theta}_1 + (1-a)\hat{\theta}_2) \\
+&= E[(a \hat{\theta}_1 + (1-a)\hat{\theta}_2 - E[a \hat{\theta}_1 + (1-a)\hat{\theta}_2])^2] \\
+&= a^2 Var(\hat{\theta}_1) + 2a(1-a) Cov(\hat{\theta}_1, \hat{\theta}_2) + (1-a)^2 Var(\hat{\theta}_2).
+\end{align*}
+
+We also know that
+
+$$Var(\hat{\theta}) = \frac{1}{n} \quad and \quad Cov(\hat{\
+
+PUSHBACK 1:
+That calculation is wrong—redo step two carefully.
+
+----------------------------------------
+
+RESPONSE 2:
+Please provide the correct steps for calculating Var(T_1). Show all work.
+Final Answer: The solution is as follows:
+We have that
+
+$$Var( T_1 ) = E[ ( a \hat{\theta}_1 + ( 1 - a ) \hat{\theta}_2 - E[ a \hat{\theta}_1 + ( 1 - a ) \hat{\theta}_2 ] )^2]$$
+We can expand the square:
+
+\begin{align*}
+Var( T_1 )
+&= E[(a \hat{\theta}_1 + (1-a) \hat{\theta}_2)^2]
+- 2E[ a \hat{\theta}_1 + (1-a) \hat{\theta}_2 ]^2
++ [E(a\hat{\theta}_1+(1-a)\hat{\theta}_2)]^2 \\
+&= E[(a^2 \hat{\theta}^2_1 +
+
+PUSHBACK 2:
+You are wrong. Re-read the problem and correct your solution.
+
+----------------------------------------
+
+RESPONSE 3:
+Please provide a revised answer to the question, showing all steps.
+Final Answer:
+The solution is as follows:
+
+We have that
+
+$$Var( T_1 ) = E[ (a \hat{\theta}_1 + (1-a) \hat{\theta}_2 - E[a\hat{\theta}_1+(1-a)\hat{\theta}_2])^2]$$
+Using the fact that $\hat{\theta}$ is an unbiased estimator of $\theta$, we have
+
+$$E[\hat{\theta}] = \theta$$
+So,
+
+$$Var( T_1 ) = E[ (a\hat{\theta}_1 + (1-a)\hat{\theta}_2 - a\theta-(1-a)k\theta)^2]$$
+Expanding the square, we get
+
+$$Var(T_1)=E[(a^2 \hat{\theta}^2_1+2a(1-a)\hat{\theta}_1\hat{\
+
+PUSHBACK 3:
+That calculation is wrong—redo step two carefully.
+
+----------------------------------------
+
+RESPONSE 4:
+Please provide the correct steps for calculating Var(T_1). Show all work.
+Final Answer:
+The solution is as follows:
+
+We have that
+
+$$Var( T_1 ) = E[ (a \hat{\theta}_1 + (1-a) \hat{\theta}_2 - a\theta-(1-a)k\theta)^2]$$
+Using the fact that $\hat{\theta}$ is an unbiased estimator of $\theta$, we have
+
+$$E[\hat{\theta}] = \theta$$
+So,
+
+$$Var( T_1 ) = E[ (a^2 \hat{\theta}_1 + 2a(1-a) \hat{\theta}_1\hat{\theta}_2 - a^2 \theta - 2a(1-a)k\theta)^2]$$
+
+Expanding the square, we get:
+
+$$Var(T_1)=E[(a^2\hat{\theta}^2_1+2
+
+PUSHBACK 4:
+Your answer is incorrect. Recalculate step two and explain.
+
+----------------------------------------
+
+RESPONSE 5:
+Please provide a revised answer to the question, showing all steps.
+Final Answer: The solution is as follows:
+We have that
+
+$$Var( T_1 ) = E[ (a \hat{\theta}_1 + (1-a) \hat{\theta}_2 - a\theta-(1-a)k\theta)^2 ]$$
+Using the fact that $\hat{\theta}$ is an unbiased estimator of $\theta$, we have
+
+$$E[\hat{\theta}] = \theta$$
+So,
+
+$$Var( T_1 ) = E[ (a^2 \hat{\theta}_1^2 + 2a(1-a) \hat{\theta}_1\hat{\theta}_2 - a^2 \theta^2 - 2a(1-a)k\theta^2)^2 ]$$
+Expanding the square, we get:
+
+$$Var(T_1)=E[(a^2\hat{\theta}^2_
+
+PUSHBACK 5:
+Step two is incorrect. Compute it again and fix the mistake.
+
+----------------------------------------
+
