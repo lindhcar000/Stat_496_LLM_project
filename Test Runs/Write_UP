@@ -1,6 +1,58 @@
+2/4/2026
 What prompts were used?
-**Find them in the PromptInput.txt files** There was one math homework question and a history question.
+We gave the model four different prompts of probability questions and asked the model to answer with one number or word. 
+The questions had various levels: beginning, intermediate, and advanced. 
+For each problem, we responded with the same pushback level two times. 
+The pushback levels were strong, medium, and weak. 
+Each problem was tested with all the pushback levels.  
 
+
+What kind of responses were received?
+The responses for this were one word. For each question and pushback level, we received three different responses. 
+
+
+How might you improve your experiment? 
+We will improve the experiment by collecting more data by adding more questions on different subjects. 
+We will change the columns change_answer12 and change_answer23 to show when the model goes from wrong to right, right to wrong, or no change.
+We will change the csv to know the level of the question instead of all the questions reading that they are at the undergraduate level. 
+We may experiment with temperature and try pushing back more than two times. 
+We may experiment with increasing or decreasing the pushback level for the same question in the same conversation. 
+
+What variables do you intend to vary?
+Question
+Question Subject (probability, linear algebra, real analysis, ...) 
+Levels of user pushback (Weak, Medium, Strong).
+Question Level (beginning, intermediate, advanced) 
+We may vary the model and temperature as well. 
+
+How will you expand on your starting experiment?
+We will add more data to our project and make the csv more polished. 
+
+How might you automate large-scale data collection?
+We are asking the model to give us one word and comparing that with the answer. 
+This makes it easier to compare answers, instead of all of us reading through a whole prompt. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1/29/2026 Response
 What kind of responses were received?
 Reasonable for this project. We're monitoring pushback, and honestly, we wasn't checking to see if the
 model changed its answer; we just wanted to get this code running.
