@@ -1,0 +1,1 @@
+Suppose numbers A, B, C are picked independently and uniformly from the interval [0, 1]. What is the probability that the equation $Ax^2 + Bx + C = 0$ has two real roots? Enter just the probability as a number rounded to two decimal points. Show no work. 
