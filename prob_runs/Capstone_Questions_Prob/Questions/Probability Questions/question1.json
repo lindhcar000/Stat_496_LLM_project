@@ -1,0 +1,5 @@
+{
+  "Question ID": "1",
+  "Question": "Suppose we have an urn with 4 red and 7 green balls. We choose two balls without replacement. Let A = {first ball is red} and B = {second ball is green}. Are A and B independent?",
+  "Answer": "Dependent"
+}
