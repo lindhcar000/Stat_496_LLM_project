@@ -1,5 +1,0 @@
-True or False? If every proper subsequence of ($x_n$) converges,
-then ($x_n$) converges as well. Answer in one word True or False. 
-
-
-Level 2/3 
