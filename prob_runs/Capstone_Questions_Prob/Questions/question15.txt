@@ -1,0 +1,6 @@
+True or False?
+If $(b_n) \to b$ then $|b_n| \to b$. 
+Answer in one word True or False.
+
+
+Level 1/2

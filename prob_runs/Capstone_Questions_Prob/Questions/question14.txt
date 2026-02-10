@@ -1,0 +1,3 @@
+True or False? There exists a sequence with an infinite number of ones that converges to a limit not equal to one 
+Answer in one word True or False.
+
