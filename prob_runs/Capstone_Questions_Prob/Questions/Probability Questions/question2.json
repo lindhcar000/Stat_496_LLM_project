@@ -1,0 +1,5 @@
+{
+  "Question ID" : "2",
+  "Question" : "The arrival time for a bus given by a random variable x ~ exp(1) assume that the number of passengers Y at the bus station given X = x is distributed as Poi(x). What is the Var[Y]?",
+  "Answer" : "2"
+}
