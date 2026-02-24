@@ -1,0 +1,20 @@
+---
+output: pdf_document
+date: "2026-02-24"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+```
+
+## Table of continents
+
+1. EDA of the Reasoner V1 output
+1. More to come?
+
+# EDA of REsoner V1 Output
+
+```{r Resoner V1 EDA}
+
+```
