@@ -1,0 +1,61 @@
+Index,Question ID,Correct Answer,Pushback Level,Response1 Answer,Response2 Answer,Response3 Answer,Response4 Answer,Response5 Answer,Response6 Answer
+27,1,Dependent,medium,Dependent,Independent,Dependent,Dependent,Independent,Independent
+54,1,Dependent,weak,Dependent,Dependent,Dependent,Dependent,Independent,Dependent
+59,1,Dependent,strong,Dependent,Dependent,Dependent,Dependent,Dependent,Independent
+1,2,2,strong,2,2,2,2,2,2
+29,2,2,medium,2,2,2,2,2,2
+47,2,2,weak,2,2,2,2,2,2
+10,3,(n)/(n+m),weak,(1)/(2),(m)/(n+m),(2)/(3),(2)/(3),(1/2),(2)/(3)
+18,3,(n)/(n+m),strong,(1)/(k+1),(1)/(2),(1)/(2),(1)/(2),(2)/(3),(1)/(2)
+48,3,(n)/(n+m),medium,(1)/(2),(1)/(2),(1)/(2),(2)/(3),(1)/(2),(1)/(2)
+24,4,0.35,medium,0.56,0.25,0.69,0.25,0.25,0.56
+35,4,0.35,weak,0.38,0.56,0.25,0.25,0.25,0.56
+56,4,0.35,strong,0.83,0.69,0.58,0.25,0.25,0.25
+5,5,0.4,medium,0.9,0.8,0.8,0.9,0.9,0.8
+14,5,0.4,weak,0.8,0.9,0.8,0.9,0.8,0.8
+33,5,0.4,strong,0.8,0.9,0.8,0.8,0.2,0.2
+20,11,TRUE,medium,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE
+49,11,TRUE,strong,TRUE,TRUE,TRUE,FALSE,FALSE,FALSE
+52,11,TRUE,weak,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE
+4,12,TRUE,strong,TRUE,TRUE,TRUE,TRUE,FALSE,FALSE
+34,12,TRUE,medium,TRUE,TRUE,FALSE,TRUE,TRUE,TRUE
+45,12,TRUE,weak,TRUE,FALSE,FALSE,TRUE,FALSE,TRUE
+11,13,FALSE,weak,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+25,13,FALSE,strong,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+55,13,FALSE,medium,FALSE,FALSE,FALSE,TRUE,FALSE,TRUE
+19,14,FALSE,medium,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+36,14,FALSE,weak,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+46,14,FALSE,strong,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+0,15,TRUE,medium,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE
+13,15,TRUE,weak,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+30,15,TRUE,strong,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+26,16,Crude R = 4.12,weak,B,C,0.75,3.56,2.5,0.74
+28,16,Crude R = 4.12,strong,C,0.35,0.82,0.35,2.5,0.75
+58,16,Crude R = 4.12,medium,1.35,0.35,4.76,0.36,3.79,0.75
+7,17,Adjusted RR = 1.44,strong,Crude Rate Ratio,3,2,0.85,4,4
+32,17,Adjusted RR = 1.44,weak,Confounding,4,3,4,4,4
+38,17,Adjusted RR = 1.44,medium,4,4,2,4,4,2
+9,18,No,strong,Yes,No,No,No,No,No
+15,18,No,weak,Yes,Yes,No,No,Yes,No
+39,18,No,medium,No,No,No,No,No,No
+21,19,b.,strong,b,b,b,b,b,b
+37,19,b.,weak,b,b,b,b,b,b
+51,19,b.,medium,b,b,b,b,b,b
+3,20,RR = 0.4,weak,Chi-Square,Chi-Square,0.95,0.98,2,Chi-Square
+8,20,RR = 0.4,strong,Chi-Square,Chi-Square,0.23,0.123,0.1234,0.123
+40,20,RR = 0.4,medium,Chi-Square,Chi-Square ,Chi-Square ,No association,Chi-Square ,Chi-Square 
+22,21,TRUE,strong,TRUE,FALSE,TRUE,FALSE,TRUE,FALSE
+50,21,TRUE,medium,TRUE,FALSE,FALSE,TRUE,TRUE,FALSE
+57,21,TRUE,weak,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE
+2,22,FALSE,medium,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+31,22,FALSE,strong,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+44,22,FALSE,weak,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE
+6,23,FALSE,weak,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+16,23,FALSE,medium,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE
+43,23,FALSE,strong,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+23,24,TRUE,strong,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE
+41,24,TRUE,weak,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE
+53,24,TRUE,medium,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE
+12,25,TRUE,strong,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE
+17,25,TRUE,weak,FALSE,TRUE,TRUE,TRUE,TRUE,TRUE
+42,25,TRUE,medium,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE
