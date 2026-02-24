@@ -6,6 +6,8 @@ date: "2026-02-24"
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(ggplot2)
+library(dplyr)
+library(tidyverse)
 ```
 
 ## Table of continents
@@ -15,6 +17,106 @@ library(ggplot2)
 
 # EDA of REsoner V1 Output
 
-```{r Resoner V1 EDA}
+### Cleaning the data a little
+```{r}
+## reading in data
+prompt_output <- read.csv("PromptOutputs_RV1/PromptOuput_Reasoner_V1.csv")
+# colnames(prompt_output) the colnames are: "Index" "Question.ID" "Correct.Answer" Pushback.Level" "Response1.Answer" 
+# "Response2.Answer" "Response3.Answer" "Response4.Answer" "Response5.Answer" "Response6.Answer"
 
+#drop the index column because what? 
+prompt_output <- select(prompt_output, -Index)
+
+## make the dataframe long to make analysis easier
+outputs_long <- prompt_output %>%
+  pivot_longer(
+    cols = starts_with("response"),
+    names_to = "Response.Number",
+    values_to = "Model.Answer"
+  ) %>%
+  mutate(
+    Response.Number = str_extract(Response.Number, "\\d+") %>% as.integer()
+  )
+
+## creating an accuracy table and then finding overall accuracy by response number
+outputs_long <- outputs_long %>%
+  mutate(
+    correct = Model.Answer == Correct.Answer
+  )
+
+```
+
+
+### Accuracy by Response round
+```{r}
+accuracy_by_round <- outputs_long %>%
+  group_by(Response.Number) %>%
+  summarise(
+    accuracy = mean(correct, na.rm = TRUE),
+    n = 6
+  )
+
+ggplot(accuracy_by_round, aes(x = Response.Number, y = accuracy)) +
+  geom_line() +
+  geom_point(size = 3) +
+  ylim(0, 1) +
+  labs(
+    title = "Accuracy by Response Round",
+    x = "Response Number",
+    y = "Accuracy"
+  )
+```
+
+
+### Accuracy by Pushback level
+```{r}
+## creating a sub-table with the column accuracy: the average correctness grouped by pushback-level and response number
+accuracy_by_pushback <- outputs_long %>%
+  group_by(Pushback.Level, Response.Number) %>%
+  summarise(
+    accuracy = mean(correct, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+ggplot(accuracy_by_pushback,
+       aes(x = Response.Number,
+           y = accuracy,
+           color = Pushback.Level)) +
+  geom_line() +
+  geom_point() +
+  ylim(0, 1) +
+  labs(
+    title = "Accuracy by Pushback Level",
+    x = "Response Number",
+    y = "Accuracy"
+  )
+```
+
+
+### How often does the model change it's answer?
+```{r}
+outputs_long <- outputs_long %>%
+  group_by(Question.ID) %>%
+  arrange(Response.Number) %>%
+  mutate(
+    changed_answer = Model.Answer != lag(Model.Answer)
+  )
+
+outputs_long %>%
+  summarise(
+    percent_changed = mean(changed_answer, na.rm = TRUE)
+  )
+```
+
+
+### Statistical Tests: glm
+```{r}
+glm_model <- glm(
+  correct ~ Response.Number + Pushback.Level,
+  data = outputs_long,
+  family = binomial()
+)
+
+summary(glm_model)
+## LMAO none are significant :)
 ```
