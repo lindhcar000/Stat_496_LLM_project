@@ -1,5 +1,5 @@
 {
   "Question ID" : "20",
-  "Question" : "You are reviewing data from the first 5 years of your study. Calculate the Rate Ratio. Below are the data.\n\nDATA:\n- Drinks Soy milk: Cancer = 2, No Cancer = 498\n- Does not drink soy milk: Cancer = 5, No Cancer = 496268, No STI = 732\n- No app use: STI = 65, No STI = 935\n\n.",
+  "Question" : "You are reviewing data from the first 5 years of your study. Calculate the Risk Ratio. Below are the data.\n\nDATA:\n- Drinks Soy milk: Cancer = 2, No Cancer = 498\n- Does not drink soy milk: Cancer = 5, No Cancer = 496268, No STI = 732\n- No app use: STI = 65, No STI = 935\n\n.",
   "Answer" : "0.4"
 }
