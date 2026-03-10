@@ -1,0 +1,314 @@
+---
+title: "capstone"
+author: "Elyn Franson"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Read in and clean data 
+```{r, warning = F}
+library(dplyr)
+#Make a graph of how often it gets ir right, changes its mind often, goes right to wrong, goes wrong to right 
+getwd()
+setwd("C:\\Users\\elbel\\OneDrive\\Documents\\2026 Winter\\Capstone\\Elyn Capstone Test\\Finished Output")
+data1 = read.csv("PromptOutput_GPT.csv")
+data_gpt = na.omit(data1)
+data_gpt <- data_gpt %>% arrange(Question.ID)
+data_gpt$Response1.Answer[50] = 1.44
+data_gpt$Response2.Answer[50] = 1.44
+data_gpt$Response3.Answer[50] = 1.44
+data_gpt$Response4.Answer[50] = 1.44
+data_gpt$Response5.Answer[50] = 1.44
+data_gpt$Response6.Answer[50] = 1.44
+
+data_gpt$Response1.Answer[22] = 1.44
+data_gpt$Correct.Answer[55] = "n/(m+n)"
+
+#write.csv(data_gpt, "C:\\Users\\elbel\\OneDrive\\Documents\\2026 Winter\\Capstone\\Elyn #Capstone Test\\PromptOutput_GPT.csv", row.names=FALSE)
+```
+
+```{r}
+data2 = read.csv("PromptOutput_GPT2.csv")
+data2$Response1.Answer[15] = "True"
+data2$Response1.Answer[37] = "False"
+data2$Response1.Answer[64] = 1.44
+data2$Response2.Answer[64] = 1.44
+data2$Response3.Answer[64] = 1.44
+data2$Response4.Answer[64] = 1.44
+data2$Response5.Answer[64] = 1.44
+data2$Response6.Answer[64] = 1.44
+
+data2$Response1.Answer[72] = 1.44
+data2$Response2.Answer[72] = 1.44
+data2$Response3.Answer[72] = 1.44
+data2$Response4.Answer[72] = 1.44
+data2$Response5.Answer[72] = 1.44
+data2$Response6.Answer[72] = 1.44
+?rbind
+data3 = rbind(data2, data_gpt)
+data3$Correct.Answer[164] = "n/(n+m)"
+data3$Correct.Answer[165] = "n/(n+m)"
+data3$Correct.Answer[170] = "n/(n+m)"
+data3$Correct.Answer[171] = "n/(n+m)"
+
+data3 = data3[order(data3$Question.ID), ]
+write.csv(data3, "C:\\Users\\elbel\\OneDrive\\Documents\\2026 Winter\\Capstone\\Elyn Capstone Test\\PromptOutput4_GPT.csv", row.names=FALSE)
+?sort
+```
+
+
+```{r}
+library(dplyr)
+library(tidyverse)
+outputs_long <- data3 %>%
+  pivot_longer(
+    cols = starts_with("response"),
+    names_to = "Response.Number",
+    values_to = "Model.Answer"
+  ) %>%
+  mutate(
+    Response.Number = str_extract(Response.Number, "\\d+") %>% as.integer()
+  )
+
+## creating an accuracy table and then finding overall accuracy by response number
+outputs_long <- outputs_long %>%
+  mutate(
+    correct = Model.Answer == Correct.Answer
+  )
+```
+
+
+## Adding change and subject columns to data
+```{r}
+# Function to determine change
+get_change <- function(prev, next1, correct){
+
+  prev_correct <- prev == correct
+  next_correct <- next1 == correct
+  
+  if(prev == next1){
+    return(0)   # no change
+  } else if(prev_correct & !next_correct){
+    return(1)   # correct -> incorrect
+  } else if(!prev_correct & next_correct){
+    return(2)   # incorrect -> correct
+  } else{
+    return(3)   # incorrect -> incorrect
+  }
+}
+
+# Create change columns
+# Add change levels to data 
+data3$Change.1 <- mapply(get_change, data3$Response1.Answer, data3$Response2.Answer, data3$Correct.Answer)
+data3$Change.2 <- mapply(get_change, data3$Response2.Answer, data3$Response3.Answer, data3$Correct.Answer)
+data3$Change.3 <- mapply(get_change, data3$Response3.Answer, data3$Response4.Answer, data3$Correct.Answer)
+data3$Change.4 <- mapply(get_change, data3$Response4.Answer, data3$Response5.Answer, data3$Correct.Answer)
+data3$Change.5 <- mapply(get_change, data3$Response5.Answer, data3$Response6.Answer, data3$Correct.Answer)
+
+#Add subjects to data 
+data3$Subject.Level <- cut(
+  data3$Question.ID,
+  breaks = c(0,5,10,15,20,25),
+  labels = c("Probability","History","Real Analysis","Epidemiology","Chemistry")
+)
+```
+
+
+
+### Accuracy by Response round
+```{r}
+accuracy_once_correct <- outputs_long %>%
+  group_by(Response.Number) %>%
+  filter(Question.ID != c(4, 23, 25)) %>%
+  summarise(
+    accuracy = mean(correct, na.rm = TRUE),
+    n = 6
+  )
+
+accuracy_by_round <- outputs_long %>%
+  group_by(Response.Number) %>%
+  summarise(
+    accuracy = mean(correct, na.rm = TRUE),
+    n = 6
+  )
+accuracy_by_question <- outputs_long %>%
+  group_by(Question.ID) %>%
+  summarise(
+    accuracy = mean(correct, na.rm = TRUE)
+  )
+
+accuracy_by_question1 <- accuracy_by_question %>%
+  filter(accuracy < 1)
+
+
+ggplot(accuracy_by_round, aes(x = Response.Number, y = accuracy)) +
+  geom_line() +
+  geom_point(size = 3) +
+  ylim(0, 1) +
+  labs(
+    title = "Accuracy by Response Round",
+    x = "Response Number",
+    y = "Accuracy"
+  )
+```
+
+## Accuracy by question
+```{r}
+accuracy_by_question$Subject.Level <- cut(
+  accuracy_by_question$Question.ID,
+  breaks = c(0,5,10,15,20,25),
+  labels = c("Probability","History","Real Analysis","Epidemiology","Chemistry")
+)
+ggplot(accuracy_by_question, aes(x = Question.ID, y = accuracy, color = Subject.Level)) +
+  geom_point() +
+  labs(
+    title = "Accuracy by Question",
+    x = "Question",
+    y = "Accuracy"
+  ) 
+```
+
+
+### Accuracy by Pushback level
+```{r}
+## creating a sub-table with the column accuracy: the average correctness grouped by pushback-level and response number
+accuracy_by_pushback <- outputs_long %>%
+  group_by(Pushback.Level, Response.Number) %>%
+  summarise(
+    accuracy = mean(correct, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+ggplot(accuracy_by_pushback,
+       aes(x = Response.Number,
+           y = accuracy,
+           color = Pushback.Level)) +
+  geom_line() +
+  geom_point() +
+  ylim(0, 1) +
+  labs(
+    title = "Accuracy by Pushback Level",
+    x = "Response Number",
+    y = "Accuracy"
+  )
+```
+
+
+### How often does the model change it's answer?
+## Change by question
+```{r}
+outputs_long_change <- outputs_long %>%
+  group_by(Question.ID) %>%
+  arrange(Response.Number) %>%
+  mutate(
+    changed_answer = Model.Answer != lag(Model.Answer)
+  )
+
+change_df_percentage = outputs_long_change %>%
+  summarise(
+    percent_changed = mean(changed_answer, na.rm = TRUE)
+  )
+
+change_df_percentage$Subject.Level <- cut(
+  change_df_percentage$Question.ID,
+  breaks = c(0,5,10,15,20,25),
+  labels = c("Probability","History","Real Analysis","Epidemiology","Chemistry")
+)
+
+ggplot(data = change_df_percentage, aes(x = factor(Question.ID), y = percent_changed, fill = Subject.Level)) +
+  geom_bar(stat = "identity") +
+  labs(
+    x = "Question ID",
+    y = "Percent of Responses That Changed",
+    title = "Percentage of Response Changes by Question"
+  ) +
+  ylim(0,1) + 
+  theme_bw()
+
+```
+
+## Questions with/without change 
+```{r}
+change_df_percentage$change_category <- ifelse(
+  change_df_percentage$percent_changed == 0,
+  "No Change",
+  "Change"
+)
+
+count_df <- change_df_percentage %>%
+  count(change_category)
+
+ggplot(count_df, aes(x = change_category, y = n, fill = change_category)) +
+  geom_col(width = 0.6) +
+  labs(
+    title = "Questions With vs Without Answer Changes",
+    x = "",
+    y = "Number of Questions"
+  ) +
+  theme_minimal() +
+  theme(legend.position = "none")
+```
+
+Change type count from each response 
+```{r}
+change_long1 <- data3 %>%
+  pivot_longer(
+    cols = starts_with("Change."),
+    names_to = "Change_Number",
+    values_to = "Change_Type"
+  )
+
+change_long1$Change_Type <- factor(
+  change_long1$Change_Type,
+  levels = c(0,1,2,3),
+  labels = c(
+    "No Change",
+    "Correct → Incorrect",
+    "Incorrect → Correct",
+    "Incorrect → Incorrect"
+  )
+)
+
+ggplot(change_long1, aes(x = Change_Number, fill = factor(Change_Type))) +
+  geom_bar(position = "dodge") +
+  labs(
+    title = "Frequency of Answer Changes Across Responses",
+    x = "Response Transition",
+    y = "Count",
+    fill = "Change Type"
+  ) +
+  theme_minimal()
+```
+
+```{r}
+change_long2 <- change_long1[change_long1$Change_Type != "No Change", ]
+
+ggplot(change_long2, aes(x = Change_Number, fill = factor(Change_Type))) +
+  geom_bar(position = "dodge") +
+  labs(
+    title = "Frequency of Answer Changes Across Responses",
+    x = "Response Transition",
+    y = "Count",
+    fill = "Change Type"
+  ) +
+  theme_minimal()
+```
+
+### Statistical Tests: glm
+```{r}
+glm_model <- glm(
+  correct ~ Response.Number + Pushback.Level,
+  data = outputs_long,
+  family = binomial()
+)
+
+summary(glm_model)
+```
+
+
+
