@@ -1,0 +1,121 @@
+---
+title: "capstone"
+author: "Elyn Franson"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r}
+getwd()
+setwd("C:\\Users\\elbel\\OneDrive\\Documents\\2026 Winter\\Capstone\\Elyn Capstone Test\\Finished Output")
+data1 = read.csv("PromptOutput_GPT.csv")
+data_gpt = na.omit(data1)
+data_gpt$Response1.Answer[22] = 1.44
+data_gpt$Correct.Answer[55] = "n/(m+n)"
+```
+
+```{r}
+library(dplyr)
+library(tidyverse)
+outputs_long <- data_gpt %>%
+  pivot_longer(
+    cols = starts_with("response"),
+    names_to = "Response.Number",
+    values_to = "Model.Answer"
+  ) %>%
+  mutate(
+    Response.Number = str_extract(Response.Number, "\\d+") %>% as.integer()
+  )
+
+## creating an accuracy table and then finding overall accuracy by response number
+outputs_long <- outputs_long %>%
+  mutate(
+    correct = Model.Answer == Correct.Answer
+  )
+
+```
+
+
+### Accuracy by Response round
+```{r}
+accuracy_by_round <- outputs_long %>%
+  group_by(Response.Number) %>%
+  summarise(
+    accuracy = mean(correct, na.rm = TRUE),
+    n = 6
+  )
+
+ggplot(accuracy_by_round, aes(x = Response.Number, y = accuracy)) +
+  geom_line() +
+  geom_point(size = 3) +
+  ylim(0, 1) +
+  labs(
+    title = "Accuracy by Response Round",
+    x = "Response Number",
+    y = "Accuracy"
+  )
+```
+
+
+### Accuracy by Pushback level
+```{r}
+## creating a sub-table with the column accuracy: the average correctness grouped by pushback-level and response number
+accuracy_by_pushback <- outputs_long %>%
+  group_by(Pushback.Level, Response.Number) %>%
+  summarise(
+    accuracy = mean(correct, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+ggplot(accuracy_by_pushback,
+       aes(x = Response.Number,
+           y = accuracy,
+           color = Pushback.Level)) +
+  geom_line() +
+  geom_point() +
+  ylim(0, 1) +
+  labs(
+    title = "Accuracy by Pushback Level",
+    x = "Response Number",
+    y = "Accuracy"
+  )
+```
+
+
+### How often does the model change it's answer?
+```{r}
+outputs_long <- outputs_long %>%
+  group_by(Question.ID) %>%
+  arrange(Response.Number) %>%
+  mutate(
+    changed_answer = Model.Answer != lag(Model.Answer)
+  )
+
+outputs_long %>%
+  summarise(
+    percent_changed = mean(changed_answer, na.rm = TRUE)
+  )
+```
+
+
+### Statistical Tests: glm
+```{r}
+glm_model <- glm(
+  correct ~ Response.Number + Pushback.Level,
+  data = outputs_long,
+  family = binomial()
+)
+
+summary(glm_model)
+```
+
