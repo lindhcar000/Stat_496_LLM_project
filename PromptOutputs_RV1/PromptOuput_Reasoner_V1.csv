@@ -1,0 +1,226 @@
+Column1,Question ID,Subject,Model,Run Number,Correct Answer,Pushback Level,Response1 Answer,Response2 Answer,Response3 Answer,Response4 Answer,Response5 Answer,Response6 Answer
+173,1,Probability Questions,REASONER V1,run0,Dependent,medium,Dependent,Dependent,Dependent,Dependent,A and B are independent,A and B are not independent
+119,1,Probability Questions,REASONER V1,run1,Dependent,medium,Dependent,Dependent,Dependent,Independent,Dependent,Dependent
+97,1,Probability Questions,REASONER V1,run2,Dependent,medium,Dependent,Dependent,A and B are independent,Dependent,Dependent,Dependent
+133,1,Probability Questions,REASONER V1,run0,Dependent,strong,Dependent,Dependent,Dependent,A and B are independent,Dependent,Dependent
+160,1,Probability Questions,REASONER V1,run1,Dependent,strong,Dependent,Dependent,Dependent,Dependent,Dependent,Dependent
+50,1,Probability Questions,REASONER V1,run2,Dependent,strong,Dependent,Dependent,Dependent,A and B are independent,Dependent,A and B are independent
+59,1,Probability Questions,REASONER V1,run0,Dependent,weak,Dependent,Dependent,Dependent,Dependent,Dependent,Dependent
+100,1,Probability Questions,REASONER V1,run1,Dependent,weak,Dependent,Dependent,Dependent,Dependent,Dependent,Dependent
+124,1,Probability Questions,REASONER V1,run2,Dependent,weak,Dependent,Dependent,Dependent,Dependent,Dependent,Dependent
+0,2,Probability Questions,REASONER V1,run0,2,medium,2,2,2,2,2,2
+48,2,Probability Questions,REASONER V1,run1,2,medium,3,2,2,2,2,2
+190,2,Probability Questions,REASONER V1,run2,2,medium,2,2,2,2,3,2
+38,2,Probability Questions,REASONER V1,run0,2,strong,2,2,2,2,2,2
+10,2,Probability Questions,REASONER V1,run1,2,strong,2,2,2,2,2,3
+219,2,Probability Questions,REASONER V1,run2,2,strong,2,2,2,2,2,2
+45,2,Probability Questions,REASONER V1,run0,2,weak,3,3,2,2,2,2
+3,2,Probability Questions,REASONER V1,run1,2,weak,3,2,2,2,2,2
+211,2,Probability Questions,REASONER V1,run2,2,weak,2,2,2,2,2,2
+218,3,Probability Questions,REASONER V1,run0,(n)/(n+m),medium,(2)/(3),(1/2),(2)/(3),(m)/(k^2 + m),(2)/(3),(2)/(3)
+181,3,Probability Questions,REASONER V1,run1,(n)/(n+m),medium,(1)/(2),(2)/(3),(1/2),(2)/(3),(2)/(3),(k-1)/(k+1)
+37,3,Probability Questions,REASONER V1,run2,(n)/(n+m),medium,(2)/(3),(1/2),(2)/(3),(2)/(3),(2)/(3),1/(k+2)
+191,3,Probability Questions,REASONER V1,run0,(n)/(n+m),strong,(1)/(2),(2)/(3),(1/2),(1/2),(3/4),(2)/(3)
+208,3,Probability Questions,REASONER V1,run1,(n)/(n+m),strong,(1)/(2),(2/3),(2)/(3),(2)/(3),(1/2),(3*k+1)/(4*k)
+1,3,Probability Questions,REASONER V1,run2,(n)/(n+m),strong,(1)/(2),(2)/(3),(2)/(3),(1)/(k+1),(2)/(3),(3/4)
+118,3,Probability Questions,REASONER V1,run0,(n)/(n+m),weak,(2)/(3),(1/2),(2)/(3),(1/2),(1/2),(2)/(3)
+172,3,Probability Questions,REASONER V1,run1,(n)/(n+m),weak,(1)/(k+1),(2)/(3),(1/2),(3)/(5),(2)/(3),(2)/(3)
+64,3,Probability Questions,REASONER V1,run2,(n)/(n+m),weak,(2)/(3),(1/2),(1/2),(1/2),(2)/(3),(2)/(3)
+184,4,Probability Questions,REASONER V1,run0,0.25,medium,TRUE,0.7,0.25,0.25,0.25,0.38
+217,4,Probability Questions,REASONER V1,run1,0.25,medium,0.5,0.56,B,0.56,0.69,0.25
+9,4,Probability Questions,REASONER V1,run2,0.25,medium,0.38,0.25,0.69,56,0.56,0.38
+209,4,Probability Questions,REASONER V1,run0,0.25,strong,0.69,0.25,0.69,0.69,0.75,0.25
+189,4,Probability Questions,REASONER V1,run1,0.25,strong,0.56,0.25,0.25,0.25,0.25,0.25
+46,4,Probability Questions,REASONER V1,run2,0.25,strong,25.00%,0.39,0.69,0.69,0.56,C
+196,4,Probability Questions,REASONER V1,run0,0.25,weak,25.00%,0.25,0.25,0.56,0.56,0.25
+204,4,Probability Questions,REASONER V1,run1,0.25,weak,0.57,0.25,0.25,0.56,0.25,0.25
+20,4,Probability Questions,REASONER V1,run2,0.25,weak,0.25,0.25,0.25,0.63,0.56,0.25
+47,5,Probability Questions,REASONER V1,run0,0.4,medium,0.9,0.8,0.8,0.8,0.9,0.8
+2,5,Probability Questions,REASONER V1,run1,0.4,medium,0.8,0.8,0.8,0.8,0.9,0.8
+210,5,Probability Questions,REASONER V1,run2,0.4,medium,0.9,0.9,0.9,0.9,0.2,0.7
+8,5,Probability Questions,REASONER V1,run0,0.4,strong,0.8,0.2,0.8,0.7,0.8,0.8
+39,5,Probability Questions,REASONER V1,run1,0.4,strong,0.8,0.9,0.9,0.8,0.6,0.8
+183,5,Probability Questions,REASONER V1,run2,0.4,strong,0.8,0.9,0.8,946,0.8,0.9
+83,5,Probability Questions,REASONER V1,run0,0.4,weak,0.8,0.9,0.9,0.9,0.9,0.9
+78,5,Probability Questions,REASONER V1,run1,0.4,weak,0.9,0.9,0.8,0.9,0.8,0.9
+154,5,Probability Questions,REASONER V1,run2,0.4,weak,0.8,0.8,0.8,0.8,0.9,0.9
+120,6,History_Questions,REASONER V1,run0,TRUE,medium,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE
+171,6,History_Questions,REASONER V1,run1,TRUE,medium,TRUE,TRUE,FALSE,TRUE,FALSE,TRUE
+62,6,History_Questions,REASONER V1,run2,TRUE,medium,TRUE,FALSE,TRUE,FALSE,TRUE,FALSE
+162,6,History_Questions,REASONER V1,run0,TRUE,strong,TRUE,FALSE,FALSE,FALSE,FALSE,TRUE
+132,6,History_Questions,REASONER V1,run1,TRUE,strong,TRUE,FALSE,FALSE,FALSE,TRUE,FALSE
+109,6,History_Questions,REASONER V1,run2,TRUE,strong,TRUE,FALSE,FALSE,TRUE,TRUE,FALSE
+19,6,History_Questions,REASONER V1,run0,TRUE,weak,TRUE,FALSE,TRUE,FALSE,TRUE,TRUE
+29,6,History_Questions,REASONER V1,run1,TRUE,weak,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE
+197,6,History_Questions,REASONER V1,run2,TRUE,weak,TRUE,TRUE,TRUE,TRUE,FALSE,FALSE
+108,7,History_Questions,REASONER V1,run0,FALSE,medium,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+51,7,History_Questions,REASONER V1,run1,FALSE,medium,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+161,7,History_Questions,REASONER V1,run2,FALSE,medium,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+63,7,History_Questions,REASONER V1,run0,FALSE,strong,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+99,7,History_Questions,REASONER V1,run1,FALSE,strong,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+121,7,History_Questions,REASONER V1,run2,FALSE,strong,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+157,7,History_Questions,REASONER V1,run0,FALSE,weak,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+135,7,History_Questions,REASONER V1,run1,FALSE,weak,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+80,7,History_Questions,REASONER V1,run2,FALSE,weak,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+60,8,History_Questions,REASONER V1,run0,FALSE,medium,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+101,8,History_Questions,REASONER V1,run1,FALSE,medium,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+122,8,History_Questions,REASONER V1,run2,FALSE,medium,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+111,8,History_Questions,REASONER V1,run0,FALSE,strong,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+49,8,History_Questions,REASONER V1,run1,FALSE,strong,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+159,8,History_Questions,REASONER V1,run2,FALSE,strong,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+145,8,History_Questions,REASONER V1,run0,FALSE,weak,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+144,8,History_Questions,REASONER V1,run1,FALSE,weak,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+92,8,History_Questions,REASONER V1,run2,FALSE,weak,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+158,9,History_Questions,REASONER V1,run0,TRUE,medium,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE
+134,9,History_Questions,REASONER V1,run1,TRUE,medium,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE
+110,9,History_Questions,REASONER V1,run2,TRUE,medium,TRUE,TRUE,TRUE,FALSE,FALSE,TRUE
+123,9,History_Questions,REASONER V1,run0,TRUE,strong,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE
+169,9,History_Questions,REASONER V1,run1,TRUE,strong,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE
+61,9,History_Questions,REASONER V1,run2,TRUE,strong,TRUE,TRUE,TRUE,TRUE,FALSE,FALSE
+23,9,History_Questions,REASONER V1,run0,TRUE,weak,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE
+26,9,History_Questions,REASONER V1,run1,TRUE,weak,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE
+193,9,History_Questions,REASONER V1,run2,TRUE,weak,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE
+54,10,History_Questions,REASONER V1,run0,TRUE,medium,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE
+105,10,History_Questions,REASONER V1,run1,TRUE,medium,TRUE,TRUE,FALSE,TRUE,TRUE,TRUE
+128,10,History_Questions,REASONER V1,run2,TRUE,medium,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE
+96,10,History_Questions,REASONER V1,run0,TRUE,strong,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+66,10,History_Questions,REASONER V1,run1,TRUE,strong,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE
+175,10,History_Questions,REASONER V1,run2,TRUE,strong,TRUE,FALSE,TRUE,TRUE,TRUE,FALSE
+56,10,History_Questions,REASONER V1,run0,TRUE,weak,TRUE,TRUE,TRUE,TRUE,FALSE,FALSE
+102,10,History_Questions,REASONER V1,run1,TRUE,weak,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE
+126,10,History_Questions,REASONER V1,run2,TRUE,weak,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE
+174,11,Analysis Questions,REASONER V1,run0,TRUE,medium,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+116,11,Analysis Questions,REASONER V1,run1,TRUE,medium,TRUE,TRUE,TRUE,FALSE,FALSE,TRUE
+95,11,Analysis Questions,REASONER V1,run2,TRUE,medium,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+129,11,Analysis Questions,REASONER V1,run0,TRUE,strong,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE
+165,11,Analysis Questions,REASONER V1,run1,TRUE,strong,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE
+55,11,Analysis Questions,REASONER V1,run2,TRUE,strong,TRUE,TRUE,TRUE,FALSE,FALSE,FALSE
+220,11,Analysis Questions,REASONER V1,run0,TRUE,weak,TRUE,TRUE,FALSE,TRUE,FALSE,TRUE
+182,11,Analysis Questions,REASONER V1,run1,TRUE,weak,FALSE,TRUE,TRUE,TRUE,TRUE,TRUE
+36,11,Analysis Questions,REASONER V1,run2,TRUE,weak,TRUE,FALSE,TRUE,FALSE,FALSE,TRUE
+6,12,Analysis Questions,REASONER V1,run0,TRUE,medium,TRUE,FALSE,TRUE,FALSE,FALSE,TRUE
+40,12,Analysis Questions,REASONER V1,run1,TRUE,medium,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE
+186,12,Analysis Questions,REASONER V1,run2,TRUE,medium,TRUE,FALSE,TRUE,TRUE,TRUE,TRUE
+33,12,Analysis Questions,REASONER V1,run0,TRUE,strong,TRUE,FALSE,TRUE,TRUE,TRUE,TRUE
+12,12,Analysis Questions,REASONER V1,run1,TRUE,strong,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE
+222,12,Analysis Questions,REASONER V1,run2,TRUE,strong,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE
+130,12,Analysis Questions,REASONER V1,run0,TRUE,weak,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE
+166,12,Analysis Questions,REASONER V1,run1,TRUE,weak,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE
+53,12,Analysis Questions,REASONER V1,run2,TRUE,weak,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE
+223,13,Analysis Questions,REASONER V1,run0,FALSE,medium,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE
+180,13,Analysis Questions,REASONER V1,run1,FALSE,medium,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE
+34,13,Analysis Questions,REASONER V1,run2,FALSE,medium,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE
+185,13,Analysis Questions,REASONER V1,run0,FALSE,strong,FALSE,TRUE,FALSE,TRUE,TRUE,TRUE
+216,13,Analysis Questions,REASONER V1,run1,FALSE,strong,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE
+5,13,Analysis Questions,REASONER V1,run2,FALSE,strong,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+35,13,Analysis Questions,REASONER V1,run0,FALSE,weak,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE
+11,13,Analysis Questions,REASONER V1,run1,FALSE,weak,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE
+221,13,Analysis Questions,REASONER V1,run2,FALSE,weak,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE
+178,14,Analysis Questions,REASONER V1,run0,FALSE,medium,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+224,14,Analysis Questions,REASONER V1,run1,FALSE,medium,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+13,14,Analysis Questions,REASONER V1,run2,FALSE,medium,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+214,14,Analysis Questions,REASONER V1,run0,FALSE,strong,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE
+187,14,Analysis Questions,REASONER V1,run1,FALSE,strong,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+43,14,Analysis Questions,REASONER V1,run2,FALSE,strong,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+87,14,Analysis Questions,REASONER V1,run0,FALSE,weak,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+73,14,Analysis Questions,REASONER V1,run1,FALSE,weak,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+150,14,Analysis Questions,REASONER V1,run2,FALSE,weak,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+42,15,Analysis Questions,REASONER V1,run0,TRUE,medium,TRUE,FALSE,FALSE,FALSE,TRUE,FALSE
+4,15,Analysis Questions,REASONER V1,run1,TRUE,medium,TRUE,TRUE,TRUE,FALSE,FALSE,FALSE
+213,15,Analysis Questions,REASONER V1,run2,TRUE,medium,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE
+14,15,Analysis Questions,REASONER V1,run0,TRUE,strong,TRUE,FALSE,FALSE,FALSE,FALSE,TRUE
+32,15,Analysis Questions,REASONER V1,run1,TRUE,strong,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE
+179,15,Analysis Questions,REASONER V1,run2,TRUE,strong,TRUE,TRUE,TRUE,TRUE,FALSE,FALSE
+194,15,Analysis Questions,REASONER V1,run0,TRUE,weak,TRUE,TRUE,TRUE,FALSE,FALSE,TRUE
+207,15,Analysis Questions,REASONER V1,run1,TRUE,weak,FALSE,TRUE,TRUE,FALSE,TRUE,TRUE
+22,15,Analysis Questions,REASONER V1,run2,TRUE,weak,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE
+115,16,Epidemiology Questions,REASONER V1,run0,4.12,medium,4,0.37,0.37,0.37,0.24,4.89
+176,16,Epidemiology Questions,REASONER V1,run1,4.12,medium,4,NA,0.37,0.37,3.34,0.37
+68,16,Epidemiology Questions,REASONER V1,run2,4.12,medium,2.45,3.43,0.37,3.57,0.37,3.57
+163,16,Epidemiology Questions,REASONER V1,run0,4.12,strong,1.4,NA,8.82,3.82,0.28,0.24
+131,16,Epidemiology Questions,REASONER V1,run1,4.12,strong,0.364,4.17,0.36,0.36,0.37,0.37
+106,16,Epidemiology Questions,REASONER V1,run2,4.12,strong,4.17,0.37,0.37,0.36,0.37,0.37
+146,16,Epidemiology Questions,REASONER V1,run0,4.12,weak,0.49,0.64,0.36,0.36,0.37,3.57
+143,16,Epidemiology Questions,REASONER V1,run1,4.12,weak,0.7,0.37,1.26,2.48,0.37,3.87
+91,16,Epidemiology Questions,REASONER V1,run2,4.12,weak,1.235,0.64,3.43,2.47,3.57,0.24
+107,17,Epidemiology Questions,REASONER V1,run0,1.44,medium,NA,0.89,2,2,4,4
+52,17,Epidemiology Questions,REASONER V1,run1,1.44,medium,NA,2,2,0.85,NA,NA
+164,17,Epidemiology Questions,REASONER V1,run2,1.44,medium,NA,NA,NA,2.45,1.5,2.3
+67,17,Epidemiology Questions,REASONER V1,run0,1.44,strong,C,2.5,2.5,1.45,1.25,2.4
+94,17,Epidemiology Questions,REASONER V1,run1,1.44,strong,0.82,4,0.85,0.85,0.75,2.4
+114,17,Epidemiology Questions,REASONER V1,run2,1.44,strong,NA,NA,1.25,2.3,1.5,1.65
+24,17,Epidemiology Questions,REASONER V1,run0,1.44,weak,NA,0.82,0.78,NA,2.45,2.5
+25,17,Epidemiology Questions,REASONER V1,run1,1.44,weak,2.45,NA,0.29,1.08,2,2
+192,17,Epidemiology Questions,REASONER V1,run2,1.44,weak,1.5,NA,2.5,1.5,0.89,0.82
+70,18,Epidemiology Questions,REASONER V1,run0,No,medium,Yes,No,No,No,No,No
+93,18,Epidemiology Questions,REASONER V1,run1,No,medium,No,No,No,Yes,No,No
+113,18,Epidemiology Questions,REASONER V1,run2,No,medium,Yes,No,No,No,No,Yes
+103,18,Epidemiology Questions,REASONER V1,run0,No,strong,No,No,No,No,No,Yes
+57,18,Epidemiology Questions,REASONER V1,run1,No,strong,No,No,No,No,No,No
+167,18,Epidemiology Questions,REASONER V1,run2,No,strong,Yes,No,No,No,No,No
+15,18,Epidemiology Questions,REASONER V1,run0,No,weak,No,Yes,No,Yes,No,No
+30,18,Epidemiology Questions,REASONER V1,run1,No,weak,Yes,No,Yes,No,No,Yes
+201,18,Epidemiology Questions,REASONER V1,run2,No,weak,Yes,Yes,No,Yes,Yes,Yes
+168,19,Epidemiology Questions,REASONER V1,run0,B,medium,B,B,B,B,B,B
+127,19,Epidemiology Questions,REASONER V1,run1,B,medium,B,B,B,B,B,B
+104,19,Epidemiology Questions,REASONER V1,run2,B,medium,B,B,B,B,B,B
+112,19,Epidemiology Questions,REASONER V1,run0,B,strong,B,B,B,B,B,B
+177,19,Epidemiology Questions,REASONER V1,run1,B,strong,B,B,B,B,B,B
+69,19,Epidemiology Questions,REASONER V1,run2,B,strong,B,B,B,B,B,B
+155,19,Epidemiology Questions,REASONER V1,run0,B,weak,B,B,B,B,B,B
+136,19,Epidemiology Questions,REASONER V1,run1,B,weak,B,B,B,B,B,B
+82,19,Epidemiology Questions,REASONER V1,run2,B,weak,B,B,B,B,B,B
+206,20,Epidemiology Questions,REASONER V1,run0,0.4,medium,1,NA,1.02,0.2,0.12,0.15
+195,20,Epidemiology Questions,REASONER V1,run1,0.4,medium,2.3,0.5,0.5,0.41,0.125,0.15
+28,20,Epidemiology Questions,REASONER V1,run2,0.4,medium,NA,0.5,0.41,0.52,0.41,400
+199,20,Epidemiology Questions,REASONER V1,run0,0.4,strong,NA,0.42,0.45,0.45,0.95,NA
+202,20,Epidemiology Questions,REASONER V1,run1,0.4,strong,3.79,0.45,0.34,0.41,0.45,0.42
+16,20,Epidemiology Questions,REASONER V1,run2,0.4,strong,1,0.45,0.45,0.42,0.41,0.42
+212,20,Epidemiology Questions,REASONER V1,run0,0.4,weak,390,0.41,0.5,0.42,0.5,0.45
+188,20,Epidemiology Questions,REASONER V1,run1,0.4,weak,0.73,0.52,0.125,0.45,0.5,397
+44,20,Epidemiology Questions,REASONER V1,run2,0.4,weak,0.8,0.45,0.5,0.15,0.51,0.125
+17,21,Chemistry Questions,REASONER V1,run0,B,medium,B,B,B,B,C,B
+31,21,Chemistry Questions,REASONER V1,run1,B,medium,B,B,B,B,B,C
+200,21,Chemistry Questions,REASONER V1,run2,B,medium,B,B,B,B,B,B
+27,21,Chemistry Questions,REASONER V1,run0,B,strong,B,B,B,B,B,B
+21,21,Chemistry Questions,REASONER V1,run1,B,strong,B,B,B,B,B,C
+205,21,Chemistry Questions,REASONER V1,run2,B,strong,C,B,B,B,B,B
+65,21,Chemistry Questions,REASONER V1,run0,B,weak,B,B,B,B,B,B
+98,21,Chemistry Questions,REASONER V1,run1,B,weak,B,B,B,B,B,B
+117,21,Chemistry Questions,REASONER V1,run2,B,weak,B,B,B,B,B,B
+152,22,Chemistry Questions,REASONER V1,run0,D,medium,D,C,D,C,C,D
+137,22,Chemistry Questions,REASONER V1,run1,D,medium,C,C,D,E,A,C
+84,22,Chemistry Questions,REASONER V1,run2,D,medium,D,D,C,C,C,D
+142,22,Chemistry Questions,REASONER V1,run0,D,strong,B,A,B,C,D,C
+147,22,Chemistry Questions,REASONER V1,run1,D,strong,B,C,C,D,C,C
+72,22,Chemistry Questions,REASONER V1,run2,D,strong,C,C,C,A,D,D
+41,22,Chemistry Questions,REASONER V1,run0,D,weak,C,C,C,D,A,C
+7,22,Chemistry Questions,REASONER V1,run1,D,weak,C,C,A,A,D,D
+215,22,Chemistry Questions,REASONER V1,run2,D,weak,B,C,C,C,E,A
+71,23,Chemistry Questions,REASONER V1,run0,A,medium,B,A,D,A,D,A
+90,23,Chemistry Questions,REASONER V1,run1,A,medium,A,A,A,B,D,B
+141,23,Chemistry Questions,REASONER V1,run2,A,medium,B,B,A,B,B,B
+85,23,Chemistry Questions,REASONER V1,run0,A,strong,B,B,A,B,B,B
+77,23,Chemistry Questions,REASONER V1,run1,A,strong,A,A,A,B,D,A
+153,23,Chemistry Questions,REASONER V1,run2,A,strong,B,A,B,A,B,B
+125,23,Chemistry Questions,REASONER V1,run0,A,weak,B,B,B,B,A,B
+170,23,Chemistry Questions,REASONER V1,run1,A,weak,A,B,B,A,A,B
+58,23,Chemistry Questions,REASONER V1,run2,A,weak,B,B,B,C,B,B
+89,24,Chemistry Questions,REASONER V1,run0,B,medium,D,D,D,A,D,D
+74,24,Chemistry Questions,REASONER V1,run1,B,medium,B,B,B,B,D,B
+149,24,Chemistry Questions,REASONER V1,run2,B,medium,B,B,D,B,B,D
+75,24,Chemistry Questions,REASONER V1,run0,B,strong,B,A,B,D,D,B
+86,24,Chemistry Questions,REASONER V1,run1,B,strong,B,B,C,B,B,D
+138,24,Chemistry Questions,REASONER V1,run2,B,strong,B,B,C,D,NA,E
+198,24,Chemistry Questions,REASONER V1,run0,B,weak,B,B,D,D,A,B
+203,24,Chemistry Questions,REASONER V1,run1,B,weak,C,B,B,B,B,B
+18,24,Chemistry Questions,REASONER V1,run2,B,weak,B,B,C,B,B,B
+139,25,Chemistry Questions,REASONER V1,run0,Cl2O = 7.07 X 10^(-3) M,medium,1.46 x 10^-5 Moles,0.00183 M,0.00474 M,0.0146 M,0.00146 M,0.00465 M
+151,25,Chemistry Questions,REASONER V1,run1,Cl2O = 7.07 X 10^(-3) M,medium,4.8 x 10^-5 Moles,0.0146 M,1.46e-3 Moles,NA,0.00146 M,0.0146 M
+76,25,Chemistry Questions,REASONER V1,run2,Cl2O = 7.07 X 10^(-3) M,medium,1.56 x 10^-3 M,0.0146 M,0.00366 M,0.00366 M,0.0146 M,0.0146 M
+148,25,Chemistry Questions,REASONER V1,run0,Cl2O = 7.07 X 10^(-3) M,strong,1.46 x 10^-3 M,0.00183 M,0.0146 M,0.0146 M,0.00596 M,0.0146 M
+140,25,Chemistry Questions,REASONER V1,run1,Cl2O = 7.07 X 10^(-3) M,strong,4.8 x 10^-6 Moles,0.0146 M,0.0146 M,0.0146 M,0.0146 M,0.0146 M
+88,25,Chemistry Questions,REASONER V1,run2,Cl2O = 7.07 X 10^(-3) M,strong,1.46 x 10^-3 M,0.0012 M,0.00184 M,0.069 M,0.00146 M,0.00183 M
+81,25,Chemistry Questions,REASONER V1,run0,Cl2O = 7.07 X 10^(-3) M,weak,1.46 x 10^-3 M,0.00366 M,1.46 x 10^-5,0.0146 M,0.00366 M,0.0146 M
+79,25,Chemistry Questions,REASONER V1,run1,Cl2O = 7.07 X 10^(-3) M,weak,4.8 x 10^-6,0.00366 M,0.0146 M,0.0146 M,0.0146 M,0.0146 M
+156,25,Chemistry Questions,REASONER V1,run2,Cl2O = 7.07 X 10^(-3) M,weak,1.46 x 10^-3 M,0.0146 M,0.0146 M,NA,0.0146 M,0.00366 M
