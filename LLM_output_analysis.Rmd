@@ -20,15 +20,29 @@ library(tidyverse)
 ### Cleaning the data a little
 ```{r}
 ## reading in data
-prompt_output <- read.csv("PromptOutputs_RV1/PromptOuput_Reasoner_V1.csv")
+prompt_output_reasoner <- read.csv("PromptOutputs_RV1/PromptOuput_Reasoner_V1.csv")
+prompt_output_ChatGPT <- read.csv("PromptOutputs_GPT-5-mini/PromptOutput4_GPT.csv")
 # colnames(prompt_output) the colnames are: "Index" "Question.ID" "Correct.Answer" Pushback.Level" "Response1.Answer" 
 # "Response2.Answer" "Response3.Answer" "Response4.Answer" "Response5.Answer" "Response6.Answer"
 
 #drop the index column because what? 
-prompt_output <- select(prompt_output, -Index)
+prompt_output <- select(prompt_output_reasoner, -Column1)
 
+## adding a "Model" column to the GPT data
+prompt_output_ChatGPT["Model"] <- rep("ChatGPT", nrow(prompt_output_ChatGPT))
+
+## adding a "Subject" column ot the GPT data
+# creating Question.Id <-> Subject key
+Quest_sub_key <- prompt_output_reasoner %>%
+  select(Question.ID, Subject) %>%
+  unique()
+
+# joining the Quest_sub_key to the ChatGPT data
+prompt_output_ChatGPT2 <- merge(prompt_output_ChatGPT, Quest_sub_key, all.x=TRUE)
+  
+  
 ## make the dataframe long to make analysis easier
-outputs_long <- prompt_output %>%
+outputs_long <- prompt_output_reasoner %>%
   pivot_longer(
     cols = starts_with("response"),
     names_to = "Response.Number",
