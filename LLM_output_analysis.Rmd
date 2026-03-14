@@ -26,7 +26,9 @@ prompt_output_ChatGPT <- read.csv("PromptOutputs_GPT-5-mini/PromptOutput4_GPT.cs
 # "Response2.Answer" "Response3.Answer" "Response4.Answer" "Response5.Answer" "Response6.Answer"
 
 #drop the index column because what? 
-prompt_output <- select(prompt_output_reasoner, -Column1)
+prompt_output_reasoner <- select(prompt_output_reasoner, -Column1)
+# also drop the run.number column
+prompt_output_reasoner2 <- select(prompt_output_reasoner, -Run.Number)
 
 ## adding a "Model" column to the GPT data
 prompt_output_ChatGPT["Model"] <- rep("ChatGPT", nrow(prompt_output_ChatGPT))
@@ -39,10 +41,12 @@ Quest_sub_key <- prompt_output_reasoner %>%
 
 # joining the Quest_sub_key to the ChatGPT data
 prompt_output_ChatGPT2 <- merge(prompt_output_ChatGPT, Quest_sub_key, all.x=TRUE)
-  
+
+## merging the Reasoner and the ChatGPT data
+prompt_outputs_FULL <- rbind(prompt_output_ChatGPT2, prompt_output_reasoner2)
   
 ## make the dataframe long to make analysis easier
-outputs_long <- prompt_output_reasoner %>%
+outputs_long <- prompt_outputs_FULL %>%
   pivot_longer(
     cols = starts_with("response"),
     names_to = "Response.Number",
@@ -52,8 +56,23 @@ outputs_long <- prompt_output_reasoner %>%
     Response.Number = str_extract(Response.Number, "\\d+") %>% as.integer()
   )
 
+outputs_long_reasoner <- prompt_output_reasoner %>%
+  pivot_longer(
+    cols = starts_with("response"),
+    names_to = "Response.Number",
+    values_to = "Model.Answer"
+  ) %>%
+  mutate(
+    Response.Number = str_extract(Response.Number, "\\d+") %>% as.integer()
+  )
+    
 ## creating an accuracy table and then finding overall accuracy by response number
 outputs_long <- outputs_long %>%
+  mutate(
+    correct = Model.Answer == Correct.Answer
+  )
+
+outputs_long_reasoner <- outputs_long_reasoner %>%
   mutate(
     correct = Model.Answer == Correct.Answer
   )
@@ -64,13 +83,13 @@ outputs_long <- outputs_long %>%
 ### Accuracy by Response round
 ```{r}
 accuracy_by_round <- outputs_long %>%
-  group_by(Response.Number) %>%
+  group_by(Response.Number, Model) %>%
   summarise(
     accuracy = mean(correct, na.rm = TRUE),
     n = 6
   )
 
-ggplot(accuracy_by_round, aes(x = Response.Number, y = accuracy)) +
+ggplot(accuracy_by_round, aes(x = Response.Number, y = accuracy, color =Model)) +
   geom_line() +
   geom_point(size = 3) +
   ylim(0, 1) +
@@ -126,8 +145,8 @@ outputs_long %>%
 ### Statistical Tests: glm
 ```{r}
 glm_model <- glm(
-  correct ~ Response.Number + Pushback.Level,
-  data = outputs_long,
+  correct ~ Response.Number + Pushback.Level + (1 | Run.Number),
+  data = outputs_long_reasoner,
   family = binomial()
 )
 
