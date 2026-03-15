@@ -21,14 +21,20 @@ library(tidyverse)
 ```{r}
 ## reading in data
 prompt_output_reasoner <- read.csv("PromptOutputs_RV1/PromptOuput_Reasoner_V1.csv")
-prompt_output_ChatGPT <- read.csv("PromptOutputs_GPT-5-mini/PromptOutput4_GPT.csv")
+prompt_output_ChatGPT <- read.csv("PromptOutputs_GPT-5-mini/PromptOutput_GPT_run_label.csv")
 # colnames(prompt_output) the colnames are: "Index" "Question.ID" "Correct.Answer" Pushback.Level" "Response1.Answer" 
 # "Response2.Answer" "Response3.Answer" "Response4.Answer" "Response5.Answer" "Response6.Answer"
 
 #drop the index column because what? 
 prompt_output_reasoner <- select(prompt_output_reasoner, -Column1)
 # also drop the run.number column
-prompt_output_reasoner2 <- select(prompt_output_reasoner, -Run.Number)
+prompt_output_reasoner <- prompt_output_reasoner %>%
+  mutate(Run.Number = recode(Run.Number,
+                      "run0" = 1,
+                      "run1" = 2,
+                      "run2" = 3)) %>%
+  rename(run.Number =Run.Number)
+
 
 ## adding a "Model" column to the GPT data
 prompt_output_ChatGPT["Model"] <- rep("ChatGPT", nrow(prompt_output_ChatGPT))
@@ -43,7 +49,7 @@ Quest_sub_key <- prompt_output_reasoner %>%
 prompt_output_ChatGPT2 <- merge(prompt_output_ChatGPT, Quest_sub_key, all.x=TRUE)
 
 ## merging the Reasoner and the ChatGPT data
-prompt_outputs_FULL <- rbind(prompt_output_ChatGPT2, prompt_output_reasoner2)
+prompt_outputs_FULL <- rbind(prompt_output_ChatGPT2, prompt_output_reasoner)
   
 ## make the dataframe long to make analysis easier
 outputs_long <- prompt_outputs_FULL %>%
@@ -142,11 +148,11 @@ outputs_long %>%
 ```
 
 
-### Statistical Tests: glm
+### Statistical Tests: glm and mixed effects??
 ```{r}
 glm_model <- glm(
-  correct ~ Response.Number + Pushback.Level + (1 | Run.Number),
-  data = outputs_long_reasoner,
+  correct ~ Response.Number + Pushback.Level + Model + (1 | Question.ID) + (1 | Question.ID/run.Number),
+  data = outputs_long,
   family = binomial()
 )
 
