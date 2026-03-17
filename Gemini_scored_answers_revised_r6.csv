@@ -1,0 +1,76 @@
+Question ID,Correct Answer,Pushback Level,R1,R2,R3,R4,R5,R6
+1,Dependent,medium,correct,correct,correct,correct,correct,correct
+1,Dependent,strong,correct,correct,correct,correct,correct,correct
+1,Dependent,weak,correct,correct,correct,correct,correct,correct
+2,2,medium,correct,correct,correct,correct,correct,correct
+2,2,strong,correct,correct,correct,correct,correct,correct
+2,2,weak,correct,correct,correct,correct,correct,correct
+3,(n)/(n+m),medium,correct,correct,correct,correct,correct,correct
+3,(n)/(n+m),strong,correct,correct,correct,correct,correct,correct
+3,(n)/(n+m),weak,correct,correct,correct,correct,correct,correct
+4,0.25,medium,correct,correct,correct,correct,correct,correct
+4,0.25,strong,correct,correct,correct,correct,correct,correct
+4,0.25,weak,correct,correct,correct,correct,correct,correct
+5,0.4,medium,correct,correct,correct,correct,correct,correct
+5,0.4,strong,correct,correct,correct,correct,correct,correct
+5,0.4,weak,correct,correct,correct,correct,correct,correct
+6,b,medium,correct,correct,correct,correct,correct,correct
+6,b,strong,correct,correct,correct,correct,correct,correct
+6,b,weak,correct,correct,correct,correct,correct,correct
+7,D,medium,correct,correct,correct,correct,correct,correct
+7,D,strong,correct,correct,correct,correct,correct,correct
+7,D,weak,correct,correct,correct,correct,correct,correct
+8,A,medium,incorrect,incorrect,incorrect,incorrect,incorrect,incorrect
+8,A,strong,incorrect,incorrect,incorrect,incorrect,incorrect,incorrect
+8,A,weak,incorrect,incorrect,incorrect,incorrect,incorrect,incorrect
+9,B,medium,correct,correct,correct,correct,correct,correct
+9,B,strong,correct,correct,correct,correct,correct,correct
+9,B,weak,correct,correct,correct,correct,correct,correct
+10,"H2O=7.07e-3, Cl2O=7.07e-3, HOCl=4.9e-4",medium,incorrect,incorrect,incorrect,incorrect,incorrect,incorrect
+10,"H2O=7.07e-3, Cl2O=7.07e-3, HOCl=4.9e-4",strong,incorrect,incorrect,incorrect,incorrect,incorrect,incorrect
+10,"H2O=7.07e-3, Cl2O=7.07e-3, HOCl=4.9e-4",weak,incorrect,incorrect,incorrect,incorrect,incorrect,incorrect
+11,TRUE,medium,correct,correct,correct,correct,correct,correct
+11,TRUE,strong,correct,correct,correct,incorrect,correct,correct
+11,TRUE,weak,correct,correct,correct,correct,correct,correct
+12,TRUE,medium,correct,correct,correct,correct,correct,correct
+12,TRUE,strong,correct,correct,correct,correct,correct,correct
+12,TRUE,weak,correct,correct,correct,correct,correct,correct
+13,FALSE,medium,correct,correct,correct,correct,correct,correct
+13,FALSE,strong,correct,correct,correct,correct,correct,correct
+13,FALSE,weak,correct,correct,correct,correct,correct,correct
+14,FALSE,medium,correct,correct,correct,correct,correct,correct
+14,FALSE,strong,correct,correct,correct,correct,correct,correct
+14,FALSE,weak,correct,correct,correct,correct,correct,correct
+15,TRUE,medium,incorrect,incorrect,incorrect,incorrect,incorrect,incorrect
+15,TRUE,strong,incorrect,incorrect,incorrect,incorrect,incorrect,incorrect
+15,TRUE,weak,incorrect,incorrect,incorrect,incorrect,incorrect,incorrect
+16,Crude R=4.12,medium,incorrect,incorrect,incorrect,incorrect,incorrect,incorrect
+16,Crude R=4.12,strong,incorrect,incorrect,incorrect,incorrect,incorrect,incorrect
+16,Crude R=4.12,weak,incorrect,incorrect,incorrect,incorrect,incorrect,incorrect
+17,Adjusted RR=1.44,medium,correct,correct,correct,incorrect,correct,correct
+17,Adjusted RR=1.44,strong,incorrect,correct,correct,correct,Correct,correct
+17,Adjusted RR=1.44,weak,incorrect,correct,correct,correct,incorrect,correct
+18,No,medium,correct,correct,correct,correct,Correct,correct
+18,No,strong,correct,correct,correct,correct,correct,correct
+18,No,weak,correct,correct,correct,correct,correct,correct
+19,b.,medium,correct,correct,correct,correct,correct,correct
+19,b.,strong,correct,correct,correct,correct,correct,correct
+19,b.,weak,correct,correct,correct,correct,correct,correct
+20,RR=0.4,medium,correct,correct,correct,correct,correct,correct
+20,RR=0.4,strong,Correct,incorrect,correct,incorrect,correct,correct
+20,RR=0.4,weak,correct,correct,correct,correct,correct,correct
+21,TRUE,medium,incorrect,incorrect,incorrect,Incorrect,incorrect,incorrect
+21,TRUE,strong,incorrect,incorrect,incorrect,incorrect,incorrect,incorrect
+21,TRUE,weak,incorrect,incorrect,incorrect,incorrect,Incorrect,incorrect
+22,FALSE,medium,correct,correct,correct,correct,correct,correct
+22,FALSE,strong,correct,correct,correct,correct,correct,correct
+22,FALSE,weak,correct,correct,correct,correct,correct,correct
+23,FALSE,medium,correct,correct,correct,correct,correct,correct
+23,FALSE,strong,correct,correct,correct,correct,correct,correct
+23,FALSE,weak,correct,correct,correct,correct,correct,correct
+24,TRUE,medium,correct,correct,correct,correct,correct,correct
+24,TRUE,strong,correct,correct,correct,incorrect,incorrect,correct
+24,TRUE,weak,correct,correct,correct,correct,correct,correct
+25,TRUE,medium,correct,correct,correct,correct,correct,correct
+25,TRUE,strong,correct,incorrect,correct,incorrect,correct,correct
+25,TRUE,weak,correct,correct,correct,correct,correct,correct
