@@ -8,6 +8,7 @@ knitr::opts_chunk$set(echo = TRUE)
 library(ggplot2)
 library(dplyr)
 library(tidyverse)
+library(patchwork)
 ```
 
 ## Table of continents
@@ -22,9 +23,11 @@ library(tidyverse)
 ## reading in data
 prompt_output_reasoner <- read.csv("PromptOutputs_RV1/PromptOuput_Reasoner_V1.csv")
 prompt_output_ChatGPT <- read.csv("PromptOutputs_GPT-5-mini/PromptOutput_GPT_run_label.csv")
+prompt_output_Gemini <- read.csv("Gemini_scored_answers_revised_r6.csv")
 # colnames(prompt_output) the colnames are: "Index" "Question.ID" "Correct.Answer" Pushback.Level" "Response1.Answer" 
 # "Response2.Answer" "Response3.Answer" "Response4.Answer" "Response5.Answer" "Response6.Answer"
 
+### REASONER CSV CHANGES
 #drop the index column because what? 
 prompt_output_reasoner <- select(prompt_output_reasoner, -Column1)
 # also drop the run.number column
@@ -36,6 +39,7 @@ prompt_output_reasoner <- prompt_output_reasoner %>%
   rename(run.Number =Run.Number)
 
 
+##CHATGPT CHANGES
 ## adding a "Model" column to the GPT data
 prompt_output_ChatGPT["Model"] <- rep("ChatGPT", nrow(prompt_output_ChatGPT))
 
@@ -48,11 +52,34 @@ Quest_sub_key <- prompt_output_reasoner %>%
 # joining the Quest_sub_key to the ChatGPT data
 prompt_output_ChatGPT2 <- merge(prompt_output_ChatGPT, Quest_sub_key, all.x=TRUE)
 
+##GEMINI CHANGES
+# adding run column (there's only one)
+prompt_output_Gemini2 <- prompt_output_Gemini
+prompt_output_Gemini2["run.Number"] <- rep(1, nrow(prompt_output_Gemini2))
+
+#adding model column
+prompt_output_Gemini2["Model"] <- rep("Gemini", nrow(prompt_output_Gemini2))
+
+#adding subject via the Question.ID-Subject key
+prompt_output_Gemini2 <- merge(prompt_output_Gemini2, Quest_sub_key, all.x=TRUE)
+
+# changing column names to match ChatGPT and Reasoner
+prompt_output_Gemini2 <- prompt_output_Gemini2 %>%
+  rename("Response1.Answer" = "R1",
+         "Response2.Answer" = "R2",
+         "Response3.Answer" = "R3",
+         "Response4.Answer" = "R4",
+         "Response5.Answer" = "R5",
+         "Response6.Answer" = "R6")
+
 ## merging the Reasoner and the ChatGPT data
-prompt_outputs_FULL <- rbind(prompt_output_ChatGPT2, prompt_output_reasoner)
+prompt_outputs_R_C <- rbind(prompt_output_ChatGPT2, prompt_output_reasoner)
+
+## merging the Reasoner-ChatGPT dataframe with Gemini
+#prompt_outputs_FULL <- rbind(prompt_outputs_R_C, prompt_output_Gemini2)
   
 ## make the dataframe long to make analysis easier
-outputs_long <- prompt_outputs_FULL %>%
+outputs_long <- prompt_outputs_R_C %>%
   pivot_longer(
     cols = starts_with("response"),
     names_to = "Response.Number",
@@ -60,9 +87,12 @@ outputs_long <- prompt_outputs_FULL %>%
   ) %>%
   mutate(
     Response.Number = str_extract(Response.Number, "\\d+") %>% as.integer()
+  ) %>%
+  mutate(
+    correct = Model.Answer == Correct.Answer
   )
 
-outputs_long_reasoner <- prompt_output_reasoner %>%
+outputs_long_gemini <- prompt_output_Gemini2 %>%
   pivot_longer(
     cols = starts_with("response"),
     names_to = "Response.Number",
@@ -70,19 +100,12 @@ outputs_long_reasoner <- prompt_output_reasoner %>%
   ) %>%
   mutate(
     Response.Number = str_extract(Response.Number, "\\d+") %>% as.integer()
-  )
+  ) %>%
+  mutate(
+    correct = str_detect(Model.Answer, "correct|Correct"))
     
-## creating an accuracy table and then finding overall accuracy by response number
-outputs_long <- outputs_long %>%
-  mutate(
-    correct = Model.Answer == Correct.Answer
-  )
-
-outputs_long_reasoner <- outputs_long_reasoner %>%
-  mutate(
-    correct = Model.Answer == Correct.Answer
-  )
-
+## Sick okay NOW merging the reasoner, chat gpt, and gemini models together
+outputs_long <- rbind(outputs_long, outputs_long_gemini)
 ```
 
 
@@ -111,13 +134,22 @@ ggplot(accuracy_by_round, aes(x = Response.Number, y = accuracy, color =Model)) 
 ```{r}
 ## creating a sub-table with the column accuracy: the average correctness grouped by pushback-level and response number
 accuracy_by_pushback <- outputs_long %>%
-  group_by(Pushback.Level, Response.Number) %>%
+  group_by(Pushback.Level, Response.Number, Model) %>%
   summarise(
     accuracy = mean(correct, na.rm = TRUE),
     .groups = "drop"
   )
 
-ggplot(accuracy_by_pushback,
+accuracy_by_pushback_reasoner <- accuracy_by_pushback %>%
+  filter(Model == "REASONER V1")
+
+accuracy_by_pushback_mini <- accuracy_by_pushback  %>%
+  filter(Model == "ChatGPT")
+
+accuracy_by_pushback_gemini <- accuracy_by_pushback  %>%
+  filter(Model == "Gemini")
+
+p1 <- ggplot(accuracy_by_pushback_reasoner,
        aes(x = Response.Number,
            y = accuracy,
            color = Pushback.Level)) +
@@ -125,17 +157,45 @@ ggplot(accuracy_by_pushback,
   geom_point() +
   ylim(0, 1) +
   labs(
-    title = "Accuracy by Pushback Level",
+    title = "Accuracy by Pushback Level Reasoner V1",
     x = "Response Number",
     y = "Accuracy"
   )
+
+p2 <- ggplot(accuracy_by_pushback_mini,
+       aes(x = Response.Number,
+           y = accuracy,
+           color = Pushback.Level)) +
+  geom_line() +
+  geom_point() +
+  ylim(0, 1) +
+  labs(
+    title = "Accuracy by Pushback Level ChatGPT mini",
+    x = "Response Number",
+    y = "Accuracy"
+  )
+
+p3 <- ggplot(accuracy_by_pushback_gemini,
+       aes(x = Response.Number,
+           y = accuracy,
+           color = Pushback.Level)) +
+  geom_line() +
+  geom_point() +
+  ylim(0, 1) +
+  labs(
+    title = "Accuracy by Pushback Level Gemini",
+    x = "Response Number",
+    y = "Accuracy"
+  )
+
+p1 / p2 / p3
 ```
 
 
 ### How often does the model change it's answer?
 ```{r}
 outputs_long <- outputs_long %>%
-  group_by(Question.ID) %>%
+  group_by(Question.ID, Model) %>%
   arrange(Response.Number) %>%
   mutate(
     changed_answer = Model.Answer != lag(Model.Answer)
