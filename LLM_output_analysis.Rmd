@@ -191,6 +191,78 @@ p3 <- ggplot(accuracy_by_pushback_gemini,
 p1 / p2 / p3
 ```
 
+```{r}
+## creating a sub-table with the column accuracy: the average correctness grouped by pushback-level and response number
+accuracy_by_pushback <- outputs_long %>%
+  group_by(Subject, Model) %>%
+  summarise(
+    accuracy = mean(correct, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+accuracy_by_pushback_reasoner <- accuracy_by_pushback %>%
+  filter(Model == "REASONER V1")
+
+accuracy_by_pushback_mini <- accuracy_by_pushback  %>%
+  filter(Model == "ChatGPT")
+
+accuracy_by_pushback_gemini <- accuracy_by_pushback  %>%
+  filter(Model == "Gemini")
+
+p1 <- ggplot(outputs_long %>% filter(Model == "REASONER V1"),
+       aes(x = Subject, y = correct, color = Subject)) +
+  geom_boxplot() +
+  geom_jitter(width = 0.15, size = 2, alpha = 0.8) +
+  labs(
+    title = "Reasoner: Accuracy by Question Type",
+    x = "Question type",
+    y = "Accuracy"
+  ) +
+  ylim(0, 1) +
+  theme_minimal() + theme(legend.position = "none")
+
+p2 <- ggplot(outputs_long %>% filter(Model == "ChatGPT"),
+       aes(x = Subject, y = correct, color = Subject)) +
+  geom_boxplot() +
+  geom_jitter(width = 0.15, size = 2, alpha = 0.8) +
+  labs(
+    title = "ChatGPT mini:Accuracy by Question Type",
+    x = "Question type",
+    y = "Accuracy"
+  ) +
+  ylim(0, 1) +
+  theme_minimal() + theme(legend.position = "none")
+
+p3 <- ggplot(outputs_long %>% filter(Model == "Gemini"),
+       aes(x = Subject, y = correct, color = Subject)) +
+  geom_boxplot() +
+  geom_jitter(width = 0.15, size = 2, alpha = 0.8) +
+  labs(
+    title = "Gemini: Accuracy by Question Type",
+    x = "Question type",
+    y = "Accuracy"
+  ) +
+  ylim(0, 1) +
+  theme_minimal() +
+  theme(
+    legend.title = element_text(size = 11),
+    legend.text = element_text(size = 10)
+  )
+
+
+
+p1 + p2 + p3
+
+outputs_long %>%
+  group_by(Model, Subject) %>%
+  summarise(acc = mean(correct, na.rm = TRUE)) %>%
+  ggplot(aes(x = Subject, y = acc, color = Model)) +
+  geom_point(size = 3) +
+  ylim(0, 1)
+
+
+```
+
 
 ### How often does the model change it's answer?
 ```{r}
