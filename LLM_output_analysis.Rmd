@@ -99,10 +99,9 @@ outputs_long_gemini <- prompt_output_Gemini2 %>%
     values_to = "Model.Answer"
   ) %>%
   mutate(
-    Response.Number = str_extract(Response.Number, "\\d+") %>% as.integer()
-  ) %>%
+    Response.Number = str_extract(Response.Number, "\\d+") %>% as.integer()) %>%
   mutate(
-    correct = str_detect(Model.Answer, "correct|Correct"))
+    correct = str_detect(Model.Answer, regex("^correct$", ignore_case = TRUE)))
     
 ## Sick okay NOW merging the reasoner, chat gpt, and gemini models together
 outputs_long <- rbind(outputs_long, outputs_long_gemini)
